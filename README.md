@@ -34,4 +34,18 @@ This script should be compatible with any Python V3 version however it is testin
    i. To present the CSV to local host, docker mount can be defined in the Dockerfile or docker run can be invoked with -v option to define mounts at runtime<br>
 
    
+**Exceuting Script from Command line**
+1. Download the github report elliottmgmt <br>
+2. Install Python V 3.x, tested with V3.12.2 <br>
+3. Install the required python libraries <br>
+      **pip install -r requirements.txt**
+4. Run the following <br>
+      **python ssl_api.py**
+5. This should generate an on-screen output and a CSV file to verify
+
+**Executing the docker Image**
+
+1. The latest version I built is V3.0.0, which has the CSV file generation
+      **docker run -it ssl-api:3.0.0**
+
    
