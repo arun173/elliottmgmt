@@ -41,12 +41,12 @@ This script should be compatible with any Python V3 version however it is testin
       **pip install -r requirements.txt**
 4. Run the following <br>
       **python ssl_api.py**
-5. This should generate an on-screen output and a CSV file to verify
+5. This should generate an on-screen output and a CSV file to verify <br>
 
 **Generating a Docker file**
 1. Download the report elliottmgmt <br>
-2. Run the Dockerfile to create a new local image at your environment
-      cd to repo directory
+2. Run the Dockerfile to create a new local image at your environment <br>
+      cd to repo directory <br>
       **docker build . -t ssl-api**
 
 **Executing the docker Image**
