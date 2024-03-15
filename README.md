@@ -62,18 +62,18 @@ Given a 3-hour window haven't coded those aspects and it may involve little more
 **First run - message** 
 Exception encountered:If using all scalar values, you must pass an index<br>
 
-**Subsequent run will produce report with status immediately**
-                          ipAddress statusMessage  ... delegation        details
-hostStartTime            23.185.0.2   In progress  ...          2  1710538892959
-certChains               23.185.0.2   In progress  ...          2             []
-protocols                23.185.0.2   In progress  ...          2             []
-prefixDelegation         23.185.0.2   In progress  ...          2           True
-nonPrefixDelegation      23.185.0.2   In progress  ...          2          False
-zeroRTTEnabled           23.185.0.2   In progress  ...          2             -1
-zombiePoodle             23.185.0.2   In progress  ...          2              0
-goldenDoodle             23.185.0.2   In progress  ...          2              0
-zeroLengthPaddingOracle  23.185.0.2   In progress  ...          2              0
-sleepingPoodle           23.185.0.2   In progress  ...          2              0
+**Subsequent run will produce report with status immediately** <br>
+                          ipAddress statusMessage  ... delegation        details<br>
+hostStartTime            23.185.0.2   In progress  ...          2  1710538892959<br>
+certChains               23.185.0.2   In progress  ...          2             []<br>
+protocols                23.185.0.2   In progress  ...          2             [] <br>
+prefixDelegation         23.185.0.2   In progress  ...          2           True<br>
+nonPrefixDelegation      23.185.0.2   In progress  ...          2          False<br>
+zeroRTTEnabled           23.185.0.2   In progress  ...          2             -1 <br>
+zombiePoodle             23.185.0.2   In progress  ...          2              0 <br>
+goldenDoodle             23.185.0.2   In progress  ...          2              0 <br>
+zeroLengthPaddingOracle  23.185.0.2   In progress  ...          2              0 <br>
+sleepingPoodle           23.185.0.2   In progress  ...          2              0 <br>
 
 **Consideration for Next Phase of Development**
 
@@ -95,11 +95,11 @@ Prometheus, Grafana & Alertmanager will be monitoring tool of choice to configur
 **What would you do to handle adding new domains to scan or certificate expiry events from your service?**
 
 Based on response to question #1, strategic way to be adding more records to the table with domain name.
+**certChains** will 
 
 **After some time, your report requires more enhancements requested by the Tech team of the company. How would you handle these "continuous" requirement changes in a sustainable manner?**
 
-All enhancment requests will be recorded in the Jira, and feature priotization will be done based on business urgency.
-The results of the reporting are handled with Pandas dataframe which can be easily ported to a database. 
-Since the results are persists it is easy to analyze, filter and enhancements can be made quickly.
-
-In the current build there is no backed only a CSV file is generated, however in an enterpise setup report capabilities can be enhanced with structured backend database.
+All enhancement requests will be recorded in the Jira, and feature priotization will be done based on business urgency.<br>
+Scan results are produced in dataframes we can port to database for periodic analysis.
+Since the results are persisted it is easy to analyze, filter and enhancements can be made quickly.
+In the current build there is no database backend, only a CSV file is generated. However in an enterpise setup reporting capabilities can be enhanced with structured backend database & using state of the art reporting tools.
