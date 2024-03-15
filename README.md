@@ -21,7 +21,7 @@ This script should be compatible with any Python V3 version however it is testin
 <img width="619" alt="image" src="https://github.com/arun173/elliottmgmt/assets/38709512/2a6947d9-17a9-4129-a19d-b4f05ff63647">
 
 **Script Function**
-1. Read an input file called inventory.txt which contains only domain names <br>
+1. Read a configuration file called inventory.txt which contains only domain names <br>
 2. Calls the SSL_CHECKER function which does the following:<br>
    a. Get the IP address of the domain, this required for getEndpointData API of SSL labs<br>
    b. Perform an API Get request with CacheOn option to get the recent report from cahce, else the Analyze API generates a new report<br>
