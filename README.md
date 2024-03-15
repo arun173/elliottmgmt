@@ -59,7 +59,7 @@ Generate a local docker image if any changes needed in configuration files to su
 During the first run, due to use of Pandas we may see this exception since there was no cache data and report is just triggered. This can be enhanced with a sleep(300) in the script and READY status check in the API.<br>
 Given a 3-hour window haven't coded those aspects and it may involve little more test cycles.<br>
 
-**First run - message** 
+**First run - excpetion message is expected as below** <br>
 Exception encountered:If using all scalar values, you must pass an index<br>
 
 **Subsequent run will produce report with status immediately** <br>
