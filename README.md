@@ -18,5 +18,5 @@ This script should be compatible with any Python V3 version however it is testin
 **High Level Design**
 
 
+<img width="619" alt="image" src="https://github.com/arun173/elliottmgmt/assets/38709512/2a6947d9-17a9-4129-a19d-b4f05ff63647">
 
-<img width="2240" alt="image" src="https://github.com/arun173/elliottmgmt/assets/38709512/a11a6b32-fb92-436b-9fc7-bd82c4518eb0">
