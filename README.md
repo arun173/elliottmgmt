@@ -43,6 +43,12 @@ This script should be compatible with any Python V3 version however it is testin
       **python ssl_api.py**
 5. This should generate an on-screen output and a CSV file to verify
 
+**Generating a Docker file**
+1. Download the report elliottmgmt <br>
+2. Run the Dockerfile to create a new local image at your environment
+      cd to repo directory
+      **docker build . -t ssl-api**
+
 **Executing the docker Image**
 
 1. The latest version I built is V3.0.0, which has the CSV file generation
