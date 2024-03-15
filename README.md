@@ -50,8 +50,56 @@ This script should be compatible with any Python V3 version however it is testin
       **docker build . -t ssl-api**
 
 **Executing the docker Image**
+Generate a local docker image if any changes needed in configuration files to suit your envrionemnt or download the use the **ssl-api** package to run as is.<br>
+      **docker run -it ssl-api:latest**
 
-1. The latest version I built is V3.0.0, which has the CSV file generation
-      **docker run -it ssl-api:3.0.0**
 
+**Known Issues**
+
+During the first run, due to use of Pandas we may see this exception since there was no cache data and report is just triggered. This can be enhanced with a sleep(300) in the script and READY status check in the API.<br>
+Given a 3-hour window haven't coded those aspects and it may involve little more test cycles.<br>
+
+**First run - message** 
+Exception encountered:If using all scalar values, you must pass an index<br>
+
+**Subsequent run will produce report with status immediately**
+                          ipAddress statusMessage  ... delegation        details
+hostStartTime            23.185.0.2   In progress  ...          2  1710538892959
+certChains               23.185.0.2   In progress  ...          2             []
+protocols                23.185.0.2   In progress  ...          2             []
+prefixDelegation         23.185.0.2   In progress  ...          2           True
+nonPrefixDelegation      23.185.0.2   In progress  ...          2          False
+zeroRTTEnabled           23.185.0.2   In progress  ...          2             -1
+zombiePoodle             23.185.0.2   In progress  ...          2              0
+goldenDoodle             23.185.0.2   In progress  ...          2              0
+zeroLengthPaddingOracle  23.185.0.2   In progress  ...          2              0
+sleepingPoodle           23.185.0.2   In progress  ...          2              0
+
+**Consideration for Next Phase of Development**
+
+**How would you scale this script and run it with resiliency to e.g. handle 1000s of domains?**
+The script has been containerized. It can handle a lot of domains. For this use case I have used only elliott's domain but test with other domains like google.com, microsoft.com etc. Python will loop through the input file and trigger the report generation.<br>
+Strategic method to handle this would be:<br>
+
+1. Keep the domain list in a database table with scan_status column (pick hosts that meet the filter criteria scan_status = "N") <br>
+2. Enhance the python script to read from a database table instead of a flat file <br>
+3. When each domain is picked up for scanning update the scan_status column with "Y" which implies the job has been triggered<br>
+4. If there are tens of thousands of domain to be scanned then deploy this container image in Kubernetes with Horizontal Pod Autoscaling option based on cpu-usage<br>
+     **e.g. kubectl autoscale deployment ssl-api --cpu-percent=50 --min=1 --max=10**<br>
    
+
+**How would you monitor/alert on this service?**
+
+Prometheus, Grafana & Alertmanager will be monitoring tool of choice to configure timely alerts.
+
+**What would you do to handle adding new domains to scan or certificate expiry events from your service?**
+
+Based on response to question #1, strategic way to be adding more records to the table with domain name.
+
+**After some time, your report requires more enhancements requested by the Tech team of the company. How would you handle these "continuous" requirement changes in a sustainable manner?**
+
+All enhancment requests will be recorded in the Jira, and feature priotization will be done based on business urgency.
+The results of the reporting are handled with Pandas dataframe which can be easily ported to a database. 
+Since the results are persists it is easy to analyze, filter and enhancements can be made quickly.
+
+In the current build there is no backed only a CSV file is generated, however in an enterpise setup report capabilities can be enhanced with structured backend database.
