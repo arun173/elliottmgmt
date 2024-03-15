@@ -59,13 +59,14 @@ Generate a local docker image if any changes needed in configuration files to su
 During the first run, due to use of Pandas we may see this exception since there was no cache data and report is just triggered. This can be enhanced with a sleep(300) in the script and READY status check in the API.<br>
 Given a 3-hour window haven't coded those aspects and it may involve little more test cycles.<br>
 
-**First run - excpetion message is expected as below** <br>
-Exception encountered:If using all scalar values, you must pass an index<br>
+**First run - exception message is expected as below** <br>
+*Exception encountered:If using all scalar values, you must pass an index*<br>
 
 **Subsequent run will produce report with status immediately** <br>
+
                           ipAddress statusMessage  ... delegation        details<br>
 hostStartTime            23.185.0.2   In progress  ...          2  1710538892959<br>
-certChains               23.185.0.2   In progress  ...          2             []<br>
+**certChains**               23.185.0.2   In progress  ...          2             []<br>
 protocols                23.185.0.2   In progress  ...          2             [] <br>
 prefixDelegation         23.185.0.2   In progress  ...          2           True<br>
 nonPrefixDelegation      23.185.0.2   In progress  ...          2          False<br>
@@ -94,8 +95,8 @@ Prometheus, Grafana & Alertmanager will be monitoring tool of choice to configur
 
 **What would you do to handle adding new domains to scan or certificate expiry events from your service?**
 
-Based on response to question #1, strategic way to be adding more records to the table with domain name.
-**certChains** will 
+Based on response to question #1, strategic way to be adding more records to the table with domain name. <br>
+**certChains** will be fitlered out and any status other than "A" will be reported for certificated issues.<br>
 
 **After some time, your report requires more enhancements requested by the Tech team of the company. How would you handle these "continuous" requirement changes in a sustainable manner?**
 
